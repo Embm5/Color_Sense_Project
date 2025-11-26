@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Color Sense - Adaptación para Daltonismo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>🎨 Color Sense</h1>
+    <p class="subtitle">Adaptación visual automática para personas con daltonismo</p>
+  </header>
+
+  <main class="content-container">
+
+    <!-- CONFIGURACIÓN -->
+    <section class="panel">
+      <h2>Configuración del usuario</h2>
+
+      <label for="daltonType">Tipo de daltonismo:</label>
+      <select id="daltonType" class="select">
+        <option value="deuteranopia">Deuteranopia</option>
+        <option value="protanopia">Protanopia</option>
+        <option value="tritanopia">Tritanopia</option>
+      </select>
+
+      <button id="adaptBtn" class="btn-primary">Aplicar Adaptación</button>
+    </section>
+
+    <!-- TARJETAS DE COLOR -->
+    <section class="panel">
+      <h2>Tarjetas de Colores</h2>
+      <p>Estas tarjetas cambiarán según el tipo de daltonismo seleccionado.</p>
+
+      <div class="color-grid">
+        <div class="color-card" data-color="#FF0000" data-label="Rojo" style="background-color:#FF0000;">
+          <span class="color-label">Rojo</span>
+        </div>
+
+        <div class="color-card" data-color="#00FF00" data-label="Verde" style="background-color:#00FF00;">
+          <span class="color-label">Verde</span>
+        </div>
+
+        <div class="color-card" data-color="#0000FF" data-label="Azul" style="background-color:#0000FF;">
+          <span class="color-label">Azul</span>
+        </div>
+
+        <div class="color-card" data-color="#FFA500" data-label="Naranja" style="background-color:#FFA500;">
+          <span class="color-label">Naranja</span>
+        </div>
+
+        <div class="color-card" data-color="#800080" data-label="Morado" style="background-color:#800080;">
+          <span class="color-label">Morado</span>
+        </div>
+
+        <div class="color-card" data-color="#FFC0CB" data-label="Rosado" style="background-color:#FFC0CB;">
+          <span class="color-label">Rosado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRAS -->
+    <section class="panel">
+      <h2>Gráfico de barras</h2>
+
+      <div id="bars" class="bar-chart">
+        <div class="bar" data-color="#FF0000" data-label="Rojo" style="height: 60%; background-color:#FF0000;"></div>
+        <div class="bar" data-color="#00FF00" data-label="Verde" style="height: 30%; background-color:#00FF00;"></div>
+        <div class="bar" data-color="#0000FF" data-label="Azul" style="height: 90%; background-color:#0000FF;"></div>
+      </div>
+    </section>
+
+    <!-- SALIDA JSON -->
+    <section class="panel">
+      <h2>Salida del Servidor (JSON-LD)</h2>
+      <pre id="output" class="json-box">{ }</pre>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
