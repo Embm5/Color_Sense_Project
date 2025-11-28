@@ -6,6 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Color Sense - Adaptación para Daltonismo</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Metadata -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebApplication",
+    "name": "Color Sense",
+    "description": "Aplicación de adaptación visual automática para personas con daltonismo",
+    "applicationCategory": "AccessibilityApplication",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "price": "0"
+    },
+    "accessibility": [
+      "ColorBlindMode",
+      "HighContrast",
+      "SimpleDesign"
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -22,12 +43,17 @@
 
       <label for="daltonType">Tipo de daltonismo:</label>
       <select id="daltonType" class="select">
-        <option value="deuteranopia">Deuteranopia</option>
-        <option value="protanopia">Protanopia</option>
-        <option value="tritanopia">Tritanopia</option>
+        <option value="normal">Visión Normal</option>
+        <option value="protanopia">Protanopía (Ausencia de Rojo)</option>
+        <option value="deuteranopia">Deuteranopía (Ausencia de Verde)</option>
+        <option value="tritanopia">Tritanopía (Ausencia de Azul)</option>
       </select>
 
       <button id="adaptBtn" class="btn-primary">Aplicar Adaptación</button>
+      <button id="tritanOnlyBtn" class="btn-primary" style="margin-left:8px; background:#20c997;">Mostrar sólo
+        Tritanopía</button>
+      <button id="restoreBtn" class="btn-primary" style="margin-left:8px; background:#6c757d;">Restaurar visión
+        normal</button>
     </section>
 
     <!-- TARJETAS DE COLOR -->
@@ -36,29 +62,50 @@
       <p>Estas tarjetas cambiarán según el tipo de daltonismo seleccionado.</p>
 
       <div class="color-grid">
-        <div class="color-card" data-color="#FF0000" data-label="Rojo" style="background-color:#FF0000;">
+        <div class="color-card" data-color="#FF0000" data-original-color="#FF0000" data-tritan-color="#E81B1B"
+          data-label="Rojo" style="background-color:#FF0000;">
           <span class="color-label">Rojo</span>
         </div>
 
-        <div class="color-card" data-color="#00FF00" data-label="Verde" style="background-color:#00FF00;">
+        <div class="color-card" data-color="#00FF00" data-original-color="#00FF00" data-tritan-color="#00CFCF"
+          data-label="Verde" style="background-color:#00FF00;">
           <span class="color-label">Verde</span>
         </div>
 
-        <div class="color-card" data-color="#0000FF" data-label="Azul" style="background-color:#0000FF;">
+        <div class="color-card" data-color="#0000FF" data-original-color="#0000FF" data-tritan-color="#00CFCF"
+          data-label="Azul" style="background-color:#0000FF;">
           <span class="color-label">Azul</span>
         </div>
 
-        <div class="color-card" data-color="#FFA500" data-label="Naranja" style="background-color:#FFA500;">
+        <div class="color-card" data-color="#FFA500" data-original-color="#FFA500" data-tritan-color="#F06C6C"
+          data-label="Naranja" style="background-color:#FFA500;">
           <span class="color-label">Naranja</span>
         </div>
 
-        <div class="color-card" data-color="#800080" data-label="Morado" style="background-color:#800080;">
+        <div class="color-card" data-color="#800080" data-original-color="#800080" data-tritan-color="#7A4A42"
+          data-label="Morado" style="background-color:#800080;">
           <span class="color-label">Morado</span>
         </div>
 
-        <div class="color-card" data-color="#FFC0CB" data-label="Rosado" style="background-color:#FFC0CB;">
+        <div class="color-card" data-color="#FFC0CB" data-original-color="#FFC0CB" data-tritan-color="#F7A7A7"
+          data-label="Rosado" style="background-color:#FFC0CB;">
           <span class="color-label">Rosado</span>
         </div>
+      </div>
+    </section>
+
+    <!-- BANDERA (Simulación) -->
+    <section class="panel">
+      <h2>Bandera (Simulación)</h2>
+      <p>Bandera normal y cómo se vería bajo Tritanopía.</p>
+
+      <div class="flag" id="flagSim">
+        <div class="stripe" data-original-color="#FF0000" data-tritan-color="#E81B1B" style="background:#FF0000;"></div>
+        <div class="stripe" data-original-color="#FFA500" data-tritan-color="#F06C6C" style="background:#FFA500;"></div>
+        <div class="stripe" data-original-color="#FFFF00" data-tritan-color="#F7A7A7" style="background:#FFFF00;"></div>
+        <div class="stripe" data-original-color="#00FF00" data-tritan-color="#0E6B6B" style="background:#00FF00;"></div>
+        <div class="stripe" data-original-color="#0000FF" data-tritan-color="#00CFCF" style="background:#0000FF;"></div>
+        <div class="stripe" data-original-color="#800080" data-tritan-color="#7A4A42" style="background:#800080;"></div>
       </div>
     </section>
 
@@ -81,6 +128,7 @@
 
   </main>
 
+  <script src="semantic-agent.js"></script>
   <script src="app.js"></script>
 </body>
 

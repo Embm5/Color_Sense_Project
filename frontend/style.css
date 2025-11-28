@@ -130,3 +130,53 @@ h2 {
   font-size: 15px;
   box-shadow: var(--shadow);
 }
+
+/* Bandera (simulación) */
+.flag {
+  width: 100%;
+  max-width: 700px;
+  height: 210px;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.flag .stripe {
+  flex: 1;
+  width: 100%;
+}
+
+/* Forzar colores exactos de la bandera bajo Tritanopía */
+.flag.flag--tritan .stripe:nth-child(1) {
+}
+.flag.flag--tritan .stripe:nth-child(2) {
+}
+.flag.flag--tritan .stripe:nth-child(3) {
+}
+.flag.flag--tritan .stripe:nth-child(4) {
+}
+.flag.flag--tritan .stripe:nth-child(5) {
+}
+.flag.flag--tritan .stripe:nth-child(6) {
+}
+.flag.flag--tritan .stripe:nth-child(1) {
+  background-color: #e81b1b !important;
+}
+.flag.flag--tritan .stripe:nth-child(2) {
+  background-color: #f06c6c !important;
+}
+.flag.flag--tritan .stripe:nth-child(3) {
+  background-color: #f7a7a7 !important;
+}
+.flag.flag--tritan .stripe:nth-child(4) {
+  background-color: #0e6b6b !important;
+}
+.flag.flag--tritan .stripe:nth-child(5) {
+  background-color: #00cfcf !important;
+}
+.flag.flag--tritan .stripe:nth-child(6) {
+  background-color: #7a4a42 !important;
+}
